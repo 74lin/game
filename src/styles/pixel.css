@@ -1,0 +1,284 @@
+/* ============================================
+   pixel.css v3.2 — 卡片简化为「色条+描述」
+   ============================================ */
+
+/* ========================
+   按钮
+   ======================== */
+.pixel-btn {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border: 2.5px solid var(--pixel-border);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.12s, box-shadow 0.12s;
+  border-radius: 2px;
+}
+
+.pixel-btn-primary {
+  background: var(--neon-cyan);
+  color: #FFFFFF;
+  box-shadow: 4px 4px 0 var(--pixel-border);
+}
+
+.pixel-btn-primary:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--pixel-border);
+}
+
+.pixel-btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--pixel-border);
+}
+
+.pixel-btn-danger {
+  background: var(--warning-red);
+  color: #FFFFFF;
+  box-shadow: 4px 4px 0 var(--pixel-border);
+}
+
+.pixel-btn-danger:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--pixel-border);
+}
+
+.pixel-btn-danger:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--pixel-border);
+}
+
+.pixel-btn-success {
+  background: var(--success-green);
+  color: #FFFFFF;
+  box-shadow: 4px 4px 0 var(--pixel-border);
+}
+
+.pixel-btn-success:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--pixel-border);
+}
+
+.pixel-btn-success:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--pixel-border);
+}
+
+.pixel-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: 4px 4px 0 var(--pixel-border) !important;
+}
+
+/* ========================
+   血条
+   ======================== */
+.pixel-health-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.pixel-health-bar-label {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--pixel-text);
+}
+
+.pixel-health-bar-container {
+  display: flex;
+  height: 16px;
+  background: #E8E8E4;
+  border: 2px solid var(--pixel-border);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pixel-health-bar-fill {
+  height: 100%;
+  display: flex;
+  transition: width 0.4s ease;
+}
+
+.pixel-health-bar-fill-cyan {
+  background: var(--neon-cyan);
+}
+
+.pixel-health-bar-fill-red {
+  background: var(--warning-red);
+}
+
+.pixel-health-bar-fill-green {
+  background: var(--success-green);
+}
+
+.pixel-health-bar-fill-yellow {
+  background: var(--warm-yellow);
+}
+
+/* ========================
+   卡牌 — 色条 + 描述文字
+   ======================== */
+.pixel-card {
+  background: var(--pixel-bg);
+  border: 2.5px solid var(--pixel-border);
+  position: relative;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--pixel-border);
+  transition: transform 0.12s, box-shadow 0.12s;
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.pixel-card::before {
+  content: none;
+}
+
+.pixel-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--pixel-border);
+}
+
+.pixel-card:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--pixel-border);
+}
+
+.pixel-card-selected {
+  border-color: var(--neon-cyan);
+  box-shadow: 2px 2px 0 var(--neon-cyan);
+}
+
+/* --- 顶部类型色条 --- */
+.pixel-card-bar {
+  padding: 4px 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.pixel-card-bar-rational {
+  background: var(--neon-cyan);
+}
+
+.pixel-card-bar-emotion {
+  background: var(--accent-pink, #DB2777);
+}
+
+.pixel-card-bar-special {
+  background: var(--accent-amber, #D97706);
+}
+
+/* --- 卡片主体：辟谣描述文字 --- */
+.pixel-card-body {
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--pixel-text);
+}
+
+/* --- 以下保留兼容旧 class（防止其他组件引用报错） --- */
+.pixel-card-title,
+.pixel-card-content,
+.pixel-card-type {
+  display: none;
+}
+
+/* ========================
+   标题
+   ======================== */
+.pixel-title-main {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--pixel-text);
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.08);
+  text-align: center;
+  text-transform: none;
+}
+
+.pixel-title-sub {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--pixel-text-dim);
+  text-shadow: none;
+  text-align: center;
+  text-transform: none;
+}
+
+/* ========================
+   人格头像卡
+   ======================== */
+.pixel-avatar-card {
+  background: var(--pixel-bg);
+  border: 2.5px solid var(--pixel-border);
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+  box-shadow: 3px 3px 0 var(--pixel-border);
+  border-radius: 2px;
+}
+
+.pixel-avatar-card:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--pixel-border);
+}
+
+.pixel-avatar-card.selected {
+  border-color: var(--neon-cyan);
+  box-shadow: 3px 3px 0 var(--neon-cyan);
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.pixel-avatar-img {
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--pixel-border);
+  border-radius: 6px;
+  margin: 0 auto 6px;
+  background: #F0F0EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pixel-avatar-name {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--pixel-text);
+  margin-bottom: 4px;
+  text-transform: none;
+}
+
+.pixel-avatar-mbti {
+  font-family: "Courier New", Consolas, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: var(--neon-cyan);
+  color: #FFFFFF;
+  display: inline-block;
+  border-radius: 2px;
+}
